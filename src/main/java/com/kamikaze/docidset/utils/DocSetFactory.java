@@ -75,7 +75,7 @@ public class DocSetFactory
       {
         // Always Favor IntArray or OpenBitSet
         case PERFORMANCE:
-          if((((max-min)>>>LONG_SHIFT)+1)*2*INT_SIZE >  count * INT_SIZE)
+          if((((max-min)>>>LONG_SHIFT)+1)*2 >  count)
             return new IntArrayDocIdSet(count);
           else
             //return new IntArrayDocIdSet(count);
@@ -100,7 +100,7 @@ public class DocSetFactory
              return new PForDeltaDocIdSet();
              //return new P4DDocIdSet();
           }   
-          else if((((max-min)>>>LONG_SHIFT)+1)*2*INT_SIZE >  count * INT_SIZE)
+          else if((((max-min)>>>LONG_SHIFT)+1)*2 >  count)
             return new IntArrayDocIdSet(count);
           else
             return new OBSDocIdSet(max-min+1);
