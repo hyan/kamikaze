@@ -971,7 +971,12 @@ public class PForDeltaDocIdSet extends DocSet implements Serializable {
         System.err.println("ERROR: advanceToTargetInTheFollowingCompBlocks(): Impossible, we must be able to find the block");
       }
       
-      PForDelta.decompressOneBlock(iterDecompBlock, sequenceOfCompBlocks.get(iterBlockIndex), _blockSize);
+      int currentIterBlockIndex = getBlockIndex(cursor);
+      if (iterBlockIndex != currentIterBlockIndex)
+      {
+        PForDelta.decompressOneBlock(iterDecompBlock, sequenceOfCompBlocks.get(iterBlockIndex), _blockSize); 
+      }
+      
       lastAccessedDocId = iterDecompBlock[0];
       if (lastAccessedDocId >= target)
       {
