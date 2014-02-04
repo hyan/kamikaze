@@ -13,7 +13,7 @@ public abstract class ImmutableDocSet extends DocSet
   private static final long serialVersionUID = 1L;
   
   private int size = -1;
-  private Logger log = Logger.getLogger(ImmutableDocSet.class.getName());
+  private static final Logger log = Logger.getLogger(ImmutableDocSet.class.getName());
   
   @Override
   public void addDoc(int docid)
